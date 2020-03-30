@@ -57,10 +57,14 @@ var TelegramService = /** @class */ (function () {
         this.bot = new telegraf_1.default(options.token, options.options);
         this.bot.launch();
     }
-    TelegramService.prototype.sendMessage = function (message, chatId) {
+    TelegramService.prototype.sendMessage = function (message, options) {
         return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                this.bot.telegram.sendMessage(chatId || this.options.chat_id, message);
+            var _a, chatId, _b, parse_mode;
+            return __generator(this, function (_c) {
+                _a = options.chatId, chatId = _a === void 0 ? this.options.chat_id : _a, _b = options.parse_mode, parse_mode = _b === void 0 ? "HTML" : _b;
+                this.bot.telegram.sendMessage(chatId, message, {
+                    parse_mode: parse_mode
+                });
                 return [2 /*return*/];
             });
         });

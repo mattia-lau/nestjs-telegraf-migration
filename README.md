@@ -34,7 +34,7 @@ import config from "./config"; // Your config file
         };
       },
       inject: [ConfigService]
-    }),
+    })
     // Or using sync register
     // TelegramModule.forRoot({
     //   token: "<BOT TOKEN>",
@@ -52,8 +52,12 @@ export class AppModule {
       );
     });
 
-    // Send Message, ChatId is optional, because your have been settle in TelegramModule
-    this.telegram.sendMessage("<message>", "<chatId>");
+    // Send Message, the options is optional, because your have been settle in TelegramModule
+    // parse_mode deafult is HTML
+    this.telegram.sendMessage("<message>", {
+      chatId: "<chatId>",
+      parse_mode: "Markdown" | "MarkdownV2" | "HTML"
+    });
   }
 }
 ```
