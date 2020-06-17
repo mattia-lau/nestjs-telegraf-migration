@@ -1,6 +1,5 @@
 import { ModuleMetadata, Type } from "@nestjs/common/interfaces";
-import { TelegrafOptions } from "telegraf";
-import { ParseMode } from "telegraf/typings/telegram-types";
+import { TelegrafOptions, ParseMode } from ".";
 
 export interface TelegramOptions {
   token: string;
@@ -14,9 +13,7 @@ export interface SendMessageOptions {
 }
 
 export interface TelegramOptionsFactory {
-  createTelegramOptions():
-    | Promise<TelegramOptions>
-    | TelegramOptions;
+  createTelegramOptions(): Promise<TelegramOptions> | TelegramOptions;
 }
 
 export interface TelegramAsyncOptions extends Pick<ModuleMetadata, "imports"> {

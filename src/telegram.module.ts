@@ -5,12 +5,12 @@ import { TelegramService } from "./telegram.service";
 import {
   TelegramAsyncOptions,
   TelegramOptions,
-  TelegramOptionsFactory
+  TelegramOptionsFactory,
 } from "./types";
 
 @Module({
   providers: [TelegramService],
-  exports: [TelegramService]
+  exports: [TelegramService],
 })
 @Global()
 export class TelegramModule {
@@ -20,11 +20,11 @@ export class TelegramModule {
       providers: [
         {
           provide: __TELEGRAM_MODULE_SETTINGS__,
-          useValue: options
+          useValue: options,
         },
-        TelegramService
+        TelegramService,
       ],
-      exports: [TelegramService]
+      exports: [TelegramService],
     };
   }
 
@@ -32,7 +32,7 @@ export class TelegramModule {
     return {
       module: TelegramModule,
       imports: options.imports || [],
-      providers: this.createAsyncProvider(options)
+      providers: this.createAsyncProvider(options),
     };
   }
 
@@ -46,8 +46,8 @@ export class TelegramModule {
       this.createAsyncOptionsProvider(options),
       {
         provide: options.useClass,
-        useClass: options.useClass
-      }
+        useClass: options.useClass,
+      },
     ];
   }
 
@@ -58,14 +58,14 @@ export class TelegramModule {
       return {
         provide: __TELEGRAM_MODULE_SETTINGS__,
         useFactory: options.useFactory,
-        inject: options.inject || []
+        inject: options.inject || [],
       };
     }
     return {
       provide: __TELEGRAM_MODULE_SETTINGS__,
       useFactory: async (optionsFactory: TelegramOptionsFactory) =>
         await optionsFactory.createTelegramOptions(),
-      inject: [options.useExisting || options.useClass]
+      inject: [options.useExisting || options.useClass],
     };
   }
 }

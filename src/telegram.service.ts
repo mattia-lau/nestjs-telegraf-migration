@@ -1,13 +1,8 @@
 import { Injectable, Inject } from "@nestjs/common";
-import Telegraf, {
-  ContextMessageUpdate,
-  Middleware,
-  HearsTriggers,
-  Extra
-} from "telegraf";
 import { __TELEGRAM_MODULE_SETTINGS__ } from "./constant";
 import { TelegramOptions, SendMessageOptions } from "./types";
 import { UpdateType } from "telegraf/typings/telegram-types";
+import { ContextMessageUpdate, Telegraf, Middleware, HearsTriggers } from ".";
 
 @Injectable()
 export class TelegramService {
@@ -24,7 +19,7 @@ export class TelegramService {
   public async sendMessage(message: string, options?: SendMessageOptions) {
     const { chatId = this.options.chat_id, parse_mode = "HTML" } = options;
     this.bot.telegram.sendMessage(chatId, message, {
-      parse_mode
+      parse_mode,
     });
   }
 
