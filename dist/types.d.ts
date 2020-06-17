@@ -1,6 +1,5 @@
 import { ModuleMetadata, Type } from "@nestjs/common/interfaces";
-import { TelegrafOptions } from "telegraf";
-import { ParseMode } from "telegraf/typings/telegram-types";
+import { TelegrafOptions, ParseMode } from ".";
 export interface TelegramOptions {
     token: string;
     chat_id?: string;

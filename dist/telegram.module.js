@@ -55,18 +55,18 @@ var TelegramModule = /** @class */ (function () {
             providers: [
                 {
                     provide: constant_1.__TELEGRAM_MODULE_SETTINGS__,
-                    useValue: options
+                    useValue: options,
                 },
-                telegram_service_1.TelegramService
+                telegram_service_1.TelegramService,
             ],
-            exports: [telegram_service_1.TelegramService]
+            exports: [telegram_service_1.TelegramService],
         };
     };
     TelegramModule.forRootAsync = function (options) {
         return {
             module: TelegramModule_1,
             imports: options.imports || [],
-            providers: this.createAsyncProvider(options)
+            providers: this.createAsyncProvider(options),
         };
     };
     TelegramModule.createAsyncProvider = function (options) {
@@ -77,8 +77,8 @@ var TelegramModule = /** @class */ (function () {
             this.createAsyncOptionsProvider(options),
             {
                 provide: options.useClass,
-                useClass: options.useClass
-            }
+                useClass: options.useClass,
+            },
         ];
     };
     TelegramModule.createAsyncOptionsProvider = function (options) {
@@ -87,7 +87,7 @@ var TelegramModule = /** @class */ (function () {
             return {
                 provide: constant_1.__TELEGRAM_MODULE_SETTINGS__,
                 useFactory: options.useFactory,
-                inject: options.inject || []
+                inject: options.inject || [],
             };
         }
         return {
@@ -98,14 +98,14 @@ var TelegramModule = /** @class */ (function () {
                     case 1: return [2 /*return*/, _a.sent()];
                 }
             }); }); },
-            inject: [options.useExisting || options.useClass]
+            inject: [options.useExisting || options.useClass],
         };
     };
     var TelegramModule_1;
     TelegramModule = TelegramModule_1 = __decorate([
         common_1.Module({
             providers: [telegram_service_1.TelegramService],
-            exports: [telegram_service_1.TelegramService]
+            exports: [telegram_service_1.TelegramService],
         }),
         common_1.Global()
     ], TelegramModule);

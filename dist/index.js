@@ -4,5 +4,7 @@ function __export(m) {
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./telegram.module"));
+__export(require("telegraf/typings/"));
 __export(require("./telegram.service"));
+// export * from "./types"
 //# sourceMappingURL=index.js.map

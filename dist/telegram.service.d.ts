@@ -1,6 +1,6 @@
-import { ContextMessageUpdate, Middleware, HearsTriggers } from "telegraf";
 import { TelegramOptions, SendMessageOptions } from "./types";
 import { UpdateType } from "telegraf/typings/telegram-types";
+import { ContextMessageUpdate, Middleware, HearsTriggers } from ".";
 export declare class TelegramService {
     private options;
     private bot;

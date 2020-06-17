@@ -49,12 +49,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var common_1 = require("@nestjs/common");
-var telegraf_1 = require("telegraf");
 var constant_1 = require("./constant");
+var _1 = require(".");
 var TelegramService = /** @class */ (function () {
     function TelegramService(options) {
         this.options = options;
-        this.bot = new telegraf_1.default(options.token, options.options);
+        this.bot = new _1.Telegraf(options.token, options.options);
         this.bot.launch();
     }
     TelegramService.prototype.sendMessage = function (message, options) {
@@ -63,7 +63,7 @@ var TelegramService = /** @class */ (function () {
             return __generator(this, function (_c) {
                 _a = options.chatId, chatId = _a === void 0 ? this.options.chat_id : _a, _b = options.parse_mode, parse_mode = _b === void 0 ? "HTML" : _b;
                 this.bot.telegram.sendMessage(chatId, message, {
-                    parse_mode: parse_mode
+                    parse_mode: parse_mode,
                 });
                 return [2 /*return*/];
             });
