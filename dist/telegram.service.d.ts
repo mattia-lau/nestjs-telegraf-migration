@@ -1,14 +1,19 @@
-import { TelegramOptions, SendMessageOptions } from "./types";
-import { UpdateType } from "telegraf/typings/telegram-types";
-import { ContextMessageUpdate, Middleware, HearsTriggers } from ".";
+import Telegraf from "telegraf";
+import { HearsTriggers, Middleware } from "telegraf/typings/composer";
+import { TelegrafContext } from "telegraf/typings/context";
+import { SceneContextMessageUpdate } from "telegraf/typings/stage";
+import { ExtraEditMessage, UpdateType } from "telegraf/typings/telegram-types";
+import { TelegramOptions } from "./types";
 export declare class TelegramService {
     private options;
     private bot;
     constructor(options: TelegramOptions);
-    sendMessage(message: string, options?: SendMessageOptions): Promise<void>;
-    on(updateTypes: UpdateType, middleware: Middleware<ContextMessageUpdate>): void;
-    hears(triggers: HearsTriggers, middleware: Middleware<ContextMessageUpdate>): void;
-    start(middleware: Middleware<ContextMessageUpdate>): void;
-    help(middleware: Middleware<ContextMessageUpdate>): void;
-    command(command: string | string[], middleware: Middleware<ContextMessageUpdate>): void;
+    on(updateTypes: UpdateType, middleware: Middleware<TelegrafContext>): Telegraf<SceneContextMessageUpdate>;
+    hears(triggers: HearsTriggers<TelegrafContext>, middleware: Middleware<TelegrafContext>): Telegraf<SceneContextMessageUpdate>;
+    start(middleware: Middleware<TelegrafContext>): Telegraf<SceneContextMessageUpdate>;
+    help(middleware: Middleware<TelegrafContext>): Telegraf<SceneContextMessageUpdate>;
+    command(command: string | string[], middleware: Middleware<TelegrafContext>): Telegraf<SceneContextMessageUpdate>;
+    sendMessage(text: string, extra?: ExtraEditMessage & {
+        chatId: string | number;
+    }): Promise<import("telegram-typings").Message>;
 }

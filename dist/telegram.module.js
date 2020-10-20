@@ -42,6 +42,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.TelegramModule = void 0;
 var common_1 = require("@nestjs/common");
 var constant_1 = require("./constant");
 var telegram_service_1 = require("./telegram.service");
