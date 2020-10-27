@@ -113,4 +113,3 @@ var TelegramModule = /** @class */ (function () {
     return TelegramModule;
 }());
 exports.TelegramModule = TelegramModule;
-//# sourceMappingURL=telegram.module.js.map

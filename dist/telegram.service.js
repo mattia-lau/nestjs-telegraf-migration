@@ -19,31 +19,42 @@ var constant_1 = require("./constant");
 var TelegramService = /** @class */ (function () {
     function TelegramService(options) {
         this.options = options;
-        this.bot = new telegraf_1.default(options.token, options.options);
-        this.bot.launch();
+        this._bot = new telegraf_1.default(options.token, options.options);
+        this._bot.launch();
     }
     TelegramService.prototype.on = function (updateTypes, middleware) {
-        return this.bot.on(updateTypes, middleware);
+        return this._bot.on(updateTypes, middleware);
     };
     TelegramService.prototype.hears = function (triggers, middleware) {
-        return this.bot.hears(triggers, middleware);
+        return this._bot.hears(triggers, middleware);
     };
     TelegramService.prototype.start = function (middleware) {
-        return this.bot.start(middleware);
+        return this._bot.start(middleware);
     };
     TelegramService.prototype.help = function (middleware) {
-        return this.bot.help(middleware);
+        return this._bot.help(middleware);
     };
     TelegramService.prototype.command = function (command, middleware) {
-        return this.bot.command(command, middleware);
+        return this._bot.command(command, middleware);
     };
     TelegramService.prototype.sendMessage = function (text, extra) {
         var chatId = extra.chatId || this.options.chat_id;
         if (!chatId) {
             throw new common_1.BadRequestException({ message: "Please enter chatId" });
         }
-        return this.bot.telegram.sendMessage(chatId, text, extra);
+        return this._bot.telegram.sendMessage(chatId, text, extra);
     };
+    TelegramService.prototype.sendDocument = function (document, extra) {
+        var chatId = extra.chatId || this.options.chat_id;
+        return this._bot.telegram.sendDocument(chatId, document, extra);
+    };
+    Object.defineProperty(TelegramService.prototype, "bot", {
+        get: function () {
+            return this._bot;
+        },
+        enumerable: false,
+        configurable: true
+    });
     TelegramService = __decorate([
         common_1.Injectable(),
         __param(0, common_1.Inject(constant_1.__TELEGRAM_MODULE_SETTINGS__)),
@@ -52,4 +63,3 @@ var TelegramService = /** @class */ (function () {
     return TelegramService;
 }());
 exports.TelegramService = TelegramService;
-//# sourceMappingURL=telegram.service.js.map

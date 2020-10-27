@@ -13,4 +13,3 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./telegram.module"), exports);
 __exportStar(require("./telegram.service"), exports);
 __exportStar(require("./types"), exports);
-//# sourceMappingURL=index.js.map
