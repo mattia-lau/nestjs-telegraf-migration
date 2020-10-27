@@ -16,7 +16,7 @@ exports.TelegramService = void 0;
 var common_1 = require("@nestjs/common");
 var telegraf_1 = require("telegraf");
 var constant_1 = require("./constant");
-var TelegramService = /** @class */ (function () {
+var TelegramService = (function () {
     function TelegramService(options) {
         this.options = options;
         this._bot = new telegraf_1.default(options.token, options.options);

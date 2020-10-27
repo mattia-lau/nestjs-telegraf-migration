@@ -46,7 +46,7 @@ exports.TelegramModule = void 0;
 var common_1 = require("@nestjs/common");
 var constant_1 = require("./constant");
 var telegram_service_1 = require("./telegram.service");
-var TelegramModule = /** @class */ (function () {
+var TelegramModule = (function () {
     function TelegramModule() {
     }
     TelegramModule_1 = TelegramModule;
@@ -95,8 +95,8 @@ var TelegramModule = /** @class */ (function () {
             provide: constant_1.__TELEGRAM_MODULE_SETTINGS__,
             useFactory: function (optionsFactory) { return __awaiter(_this, void 0, void 0, function () { return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, optionsFactory.createTelegramOptions()];
-                    case 1: return [2 /*return*/, _a.sent()];
+                    case 0: return [4, optionsFactory.createTelegramOptions()];
+                    case 1: return [2, _a.sent()];
                 }
             }); }); },
             inject: [options.useExisting || options.useClass],
