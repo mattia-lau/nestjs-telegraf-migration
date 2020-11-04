@@ -13,6 +13,3 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./telegram.module"), exports);
 __exportStar(require("./telegram.service"), exports);
 __exportStar(require("./types"), exports);
-__exportStar(require("telegraf/typings/context"), exports);
-__exportStar(require("telegraf/typings/telegram-types"), exports);
-__exportStar(require("telegraf"), exports);
